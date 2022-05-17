@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+table{
+    border: none;
+    border-spacing: none;
+    border-collapse: separate;
+    margin-top: 0;
+}
+
+table > tbody > tr > td, table > tfoot > tr > td {
+    padding: 4px 8px;
+}
+
+td{
+    text-align: left;
+}
+
+tr {
+    background-color: white;
+    font-weight: normal;
+    transition: all 0.3s ease-in-out;
+}
+
+tr:hover {
+    font-weight: bold;
+    background-color: rgb(238, 238, 238);
+    cursor: pointer;
+}
+
+table td {
+    padding: 4px 8px;
+}
+
+table td::after {
+    display: block;
+    content:attr(title);
+    font-weight: bold;
+    color: transparent;
+    height: 1px;
+    margin-bottom: -1px;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+td.head{
+    font-weight: bold;
+}
+
+
+#extension-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 4px 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#extension-container a {
+    color: rgb(0, 32, 102);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+#extension-container .extension-item{
+    background-color: rgb(243, 207, 0);
+    padding: 8px 16px;
+    border-radius: 16px;
+}
+
+#extension-container .extension-item:hover {
+    background-color: rgb(250, 228, 101);
+    cursor: pointer;
+}
+
+#extension-container .extension .arrow {
+    transform: translate(0);    
+    transition: all 0.3s ease-in-out;
+} 
+
+#extension-container .extension:hover .arrow {
+    transform: translate(0, 8px);
+}
+
+.line-break {
+    height: 2px;
+    width: 100%;
+    background-color: rgb(3, 30, 90);
+    margin-bottom: 8px;
+}
+
+#extensions {
+    margin-top: 36px;
+}

@@ -1,0 +1,120 @@
+<div id="weather" style="">
+</div>
+
+<div id='extensions'>
+  <div>
+    <span>supported extension</span>
+  </div>
+  <div class="line-break"></div>
+  <div id='extension-container'>
+    <div class="extension-item">
+      <a href="currency">
+        <span>
+          88currency
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+    <div class="extension-item">
+      <a href="weather">
+        <span>
+          88weather
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+    <div class="extension-item">
+      <a href="news">
+        <span>
+          88news
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+	require(['jquery', 'jquery/ui'], function($) {
+		function drawWeather( d ) {
+			var celcius = Math.round(parseFloat(d.main.temp)-273.15);
+			var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+			var description = d.weather[0].description;
+			var iconcode = d.weather[0].icon
+			console.log(d.wind)
+			console.log(d.wind.gust)
+			var locationWeather = $(`
+				<div class='location-weather'>
+					<div class='left-block'>
+						<div class='header'>
+							<span class='head'>CURRENT WEATHER</span>
+							<span class='location-name'>
+								${d.name}
+							</span>
+						</div>
+						<div class='temperature'>
+							<img src='http://openweathermap.org/img/wn/${iconcode}.png'></img>
+							<h1 class='temp'>${celcius + '&deg'}</h1>		
+						</div>
+							<div class='description'>${description}</div>
+						<div>
+						</div>
+					</div>
+					<div class='right-block'>
+						<div class='wind-item'> 
+							<div>
+								Wind
+							</div>
+							<div class='wind-number'>
+								${d.wind.speed}
+							</div>
+						</div>
+						<div class='line-break'>
+						</div>
+						<div class='wind-item'>
+							<div>
+								Wind Gust
+							</div>
+							<div class='wind-number'>
+								${d.wind.gust}
+							</div>
+						</div>
+					</div>
+				</div>
+			`)
+
+			$('#weather').append(locationWeather);
+
+		}
+		
+		function weatherBalloon( cityID ) {
+			var key = '2608256f56cbe0f5928cea1fc75ff2ec';
+			fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + key)  
+			.then(function(resp) { return resp.json() }) // Convert data to json
+			.then(function(data) {
+				drawWeather(data); // Call drawWeather
+			})
+				.catch(function() {
+				// catch any errors
+			});
+		}
+
+
+		$(document).ready(function() {
+			weatherBalloon( 1581130 );
+			weatherBalloon( 1562798 );
+			weatherBalloon( 1580240 );
+			weatherBalloon( 1572151 );
+			weatherBalloon( 1566083 );
+			weatherBalloon( 1586203 );
+			weatherBalloon ( 1591449 );
+			weatherBalloon ( 1581349 );
+		})
+	})
+</script>

@@ -1,0 +1,75 @@
+<?php
+$curl = curl_init();
+$options = array(
+    CURLOPT_URL => 'https://vnexpress.net/rss/kinh-doanh.rss',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_SSL_VERIFYPEER => false
+);
+
+curl_setopt_array($curl, $options);
+
+$data = curl_exec($curl);
+$xml = simplexml_load_string($data);
+$list = $xml->channel->item;
+curl_close($curl);
+?>
+
+
+<div class="article">
+    <?php foreach ($list as $entry) { ?>
+        <div class="post">
+            <a href="<?php echo $entry->link; ?>">
+                <div class="line-break"></div>
+                <div class="article-title">
+                    <span><?php echo $entry->title; ?></span>
+                </div>
+                <div class="post-desc">
+                    <?php echo $entry->description; ?>
+                </div>
+                <div class="date">
+                    <span><?php echo $entry->pubDate ?></span>
+                </div>
+            </a>
+        </div>
+    <?php } ?>
+</div>
+
+
+<div id='extensions'>
+  <div>
+    <span>supported extension</span>
+  </div>
+  <div class="line-break"></div>
+  <div id='extension-container'>
+    <div class="extension-item">
+      <a href="currency">
+        <span>
+          88currency
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+    <div class="extension-item">
+      <a href="weather">
+        <span>
+          88weather
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+    <div class="extension-item">
+      <a href="news">
+        <span>
+          88news
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

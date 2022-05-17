@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.article .date {
+    color: rgb(94, 94, 94);
+    margin-top: 4px;
+}
+
+.article a span {
+    color: black;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+
+.post{
+    padding: 8px;
+    width: 500px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.post-desc::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.article a:nth-child(2) {
+    float: left;
+    width: 50%;
+    height: 132px;
+    padding-right: 4px;
+}
+
+.article img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.post:hover {
+    background-color: rgb(241, 241, 241);
+}
+
+.article .article-title {
+    height: 60px;
+}
+
+.article .line-break {
+    height: 2px;
+    width: 100%;
+    background-color: rgb(3, 30, 90);
+}
+
+#extension-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 4px 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#extension-container a {
+    color: rgb(0, 32, 102);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+#extension-container .extension-item{
+    background-color: rgb(243, 207, 0);
+    padding: 8px 16px;
+    border-radius: 16px;
+}
+
+#extension-container .extension-item:hover {
+    background-color: rgb(250, 228, 101);
+    cursor: pointer;
+}
+
+#extension-container .extension .arrow {
+    transform: translate(0);    
+    transition: all 0.3s ease-in-out;
+} 
+
+#extension-container .extension:hover .arrow {
+    transform: translate(0, 8px);
+}
+
+.line-break {
+    height: 2px;
+    width: 100%;
+    background-color: rgb(3, 30, 90);
+    margin-bottom: 8px;
+}
+
+#extensions {
+    margin-top: 36px;
+}

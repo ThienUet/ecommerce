@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src='Extension_Weather::css/style.css'/>
+        <script src='Extension_Weather::js/index.js'></script>
+        <title>88weather</title>
+    </head>
+
+    <referenceBlock name="content">
+        <block class="Extension\Weather\Block\Weather" name="Extension_Weather" template="Extension_Weather::weather.phtml" />
+    </referenceBlock>
+</page>

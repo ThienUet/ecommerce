@@ -1,0 +1,71 @@
+<?php
+$result = $block->getCurrencyRateInfo()->ExrateList;
+$source = $result['Source'];
+?>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td class="head">Code</td>
+        <td class="head">Name</td>
+        <td class="head">Buy</td>
+        <td class="head">Transfer</td>
+        <td class="head">Sell</td>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($result['Exrate'] as $rate) : ?>
+        <?php $data = $rate['_attribute']; ?>
+        <tr>
+          <td><?= $data['CurrencyCode']; ?></td>
+          <td><?= $data['CurrencyName']; ?></td>
+          <td><?= $data['Buy']; ?></td>
+          <td><?= $data['Transfer']; ?></td>
+          <td><?= $data['Sell']; ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<div id='extensions'>
+  <div>
+    <span>supported extension</span>
+  </div>
+  <div class="line-break"></div>
+  <div id='extension-container'>
+    <div class="extension-item">
+      <a href="currency">
+        <span>
+          88currency
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+    <div class="extension-item">
+      <a href="weather">
+        <span>
+          88weather
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+    <div class="extension-item">
+      <a href="news">
+        <span>
+          88news
+        </span>
+        <span class="arrow">
+          ->
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>du bao Thời tiết</title>
+    </head>
+
+    <referenceBlock name="content">
+        <block class="Tqhuy\Bai1\Block\Weather" name="tqhuy_bai1" template="weather.phtml" />
+    </referenceBlock>
+</page>
